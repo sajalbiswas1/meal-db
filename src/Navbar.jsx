@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./component/Provider/AuthProvider";
 
 
 const Navbar = () => {
+    const {signOutUser}=useContext(AuthContext)
     return (
         <div className="bg-cyan-100 py-3">
             <div className="flex justify-between w-9/12 m-auto items-center">
@@ -15,6 +18,7 @@ const Navbar = () => {
                 <div>
                     <Link to={'/login'}><button className="text-2xl text-indigo-700 font-bold drop-shadow-md px-2 rounded-lg">LogIn</button></Link>
                     <Link to={'/signup'}><button className="text-2xl text-green-700 font-bold drop-shadow-md px-2 rounded-lg">SignUp</button></Link>
+                    <button onClick={signOutUser} className="text-2xl text-green-700 font-bold drop-shadow-md px-2 rounded-lg">SignOut</button>
 
                 </div>
             </div>
